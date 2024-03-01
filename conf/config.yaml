@@ -1,0 +1,5 @@
+input:
+  image_path: sample_input_images/chair.jpg
+
+model_checkpoint:
+  segment_anything: model_checkpoints/sam_vit_h_4b8939.pth
