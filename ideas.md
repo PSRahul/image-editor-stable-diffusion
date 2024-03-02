@@ -33,17 +33,3 @@ pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://dow
 
 
 
-# Steps
-1. conda create -n ode python=3.10
-conda activate ode 
-pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cpu
- pip install addict  
- pip install transformers 
- addict
-yapf
-timm
-numpy
-opencv-python
-supervision
-pycocotools
-pip install git+https://github.com/facebookresearch/segment-anything.git

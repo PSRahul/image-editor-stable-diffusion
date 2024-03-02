@@ -1,8 +1,8 @@
+import argparse
+
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-import sys
-import argparse
 
 from lang_sam import LangSAM
 

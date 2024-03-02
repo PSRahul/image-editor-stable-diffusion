@@ -1,6 +1,7 @@
 # Model Checkpoints
 model_checkpoints/
 outputs/
+scratch
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
