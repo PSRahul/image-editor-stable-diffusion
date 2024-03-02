@@ -2,6 +2,6 @@ from PIL import Image
 from lang_sam import LangSAM
 
 model = LangSAM()
-image_pil = Image.open("./assets/car.jpeg").convert("RGB")
+image_pil = Image.open("sample_input_images/chair.jpg").convert("RGB")
 text_prompt = "wheel"
 masks, boxes, phrases, logits = model.predict(image_pil, text_prompt)

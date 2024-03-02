@@ -25,3 +25,11 @@ Get all the segmentation mask in the image and match for the class in text promp
 1. Lift the 2D image to 3D object. Rotate it
 2. Inpaint the Image
 3. Push the object back into the image by anchoring the center.
+
+
+pip install --no-build-isolation -e GroundingDINO
+pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
+
+
+
+
