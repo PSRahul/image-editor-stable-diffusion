@@ -1,5 +1,3 @@
-input:
-  image_path: sample_input_images/chair.jpg
-
-model_checkpoint:
-  segment_anything: model_checkpoints/sam_vit_h_4b8939.pth
+image: "sample_input_images/chair.jpg" #"sample_input_images/chair.jpg"
+class_name: "chair" #
+output: "task1_output_images/chair.jpg" # 
