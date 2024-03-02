@@ -1,15 +1,25 @@
-from PIL import Image
-from lang_sam import LangSAM
 import matplotlib.pyplot as plt
 import numpy as np
-import hydra
+from PIL import Image
+import sys
+import argparse
 
-@hydra.main(version_base=None, config_path="conf", config_name="config")
-def main(config):
+from lang_sam import LangSAM
+
+
+def main():
+
+    parser = argparse.ArgumentParser(description='Fill the class object pixels with red.')
+    parser.add_argument('--image', help='Path to the input image containing the target object')
+    parser.add_argument('--class_name', help='Class name of the target object to be masked')
+    parser.add_argument('--output', help='Path to save the output image with the red mask')
+
+    args = parser.parse_args()
+
+
     model = LangSAM()
-    image_pil = Image.open(config.image)
-    text_prompt = config.class_name
-    masks, boxes, phrases, logits = model.predict(image_pil.convert("RGB"), text_prompt)
+    image_pil = Image.open(args.image)
+    masks, boxes, phrases, logits = model.predict(image_pil.convert("RGB"), args.class_name)
     masks=masks.numpy()[0]
 
     image_array=np.array(image_pil)/255.0
@@ -19,11 +29,10 @@ def main(config):
 
     masked_image_array=image_array*(1-masks[:, :, np.newaxis])+red_image_array*masks[:, :, np.newaxis]
 
-
-    plt.imshow(masked_image_array)
-    plt.imsave(config.output,masked_image_array)
+    plt.imsave(args.output,masked_image_array)
 
 
 
 if __name__ == "__main__":
+
     main()

@@ -1,3 +1,0 @@
-image: "sample_input_images/chair.jpg" #"sample_input_images/chair.jpg"
-class_name: "chair" #
-output: "task1_output_images/chair.jpg" # 
