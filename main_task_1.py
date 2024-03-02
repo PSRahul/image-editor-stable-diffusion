@@ -30,6 +30,7 @@ def main():
     masked_image_array=image_array*(1-masks[:, :, np.newaxis])+red_image_array*masks[:, :, np.newaxis]
 
     plt.imsave(args.output,masked_image_array)
+    plt.imsave(args.output.split(".jpg")[0]+"_mask.jpg",masks)
 
 
 
