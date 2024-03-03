@@ -36,7 +36,7 @@ def main():
 
 
     generator = torch.Generator("cuda")
-    prompt = "erase and background fill"
+    prompt = "background"
     image_pil =pipeline(prompt=prompt, image=image_pil, mask_image=mask_pil, generator=generator).images[0]
 
 
