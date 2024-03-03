@@ -7,9 +7,11 @@
 
 ## Task 1
 
-### Problem Statement
+## Problem Statement
 
 Mask the queried object with red colour
+
+## Possible Solutions
 
 ### Method 1 
 
@@ -22,7 +24,7 @@ Is there a model that can directly identify the object based on the text prompt?
 3. Use a Multi-model model such as [CLIP](https://openai.com/research/clip) that can classify each bounding box instance to text prompt class by similarity metrics from a unified text-image embedding.
 4. Mask the assigned Bounding box with red color
 
-### Solution Approach
+## Solution Approach
 
 For the solution, after an initial review of available open source models, I decided to use Method 1. I used the [Language Segment-Anything](https://github.com/luca-medeiros/lang-segment-anything) from Luca Medeiros to mask the queried object. This uses a combination of two promienent model
 1. [Segment Anything Model (SAM)](https://segment-anything.com/) from Meta AI that aims at zero shot open-world image segmentation.
@@ -37,14 +39,19 @@ For the solution, after an initial review of available open source models, I dec
 | ![Alt text](sample_input_images/sofa.jpg)   |![Alt text](task1_output_images/sofa.jpg)   |![Alt text](sample_input_images/table.jpg)   |![Alt text](task1_output_images/table.jpg)
 
 ## Task 2
-### Problem Statement
+## Problem Statement
 
-Change the pose of the object preserving the scene.
+Change the pose of the queried object preserving the scene.
 
-### Method 1
-1. Inpaint the Image to remove the object
+## Solution Approach
+
+1. Inpaint the Image to remove the object and complete teh scene
 2. Synthesitze novel object view from the polar and azimuth angles
 3. Push the object back into the image by anchoring the object center with the bounding box center.
+
+
+
+
 
 
 pip install --no-build-isolation -e GroundingDINO
