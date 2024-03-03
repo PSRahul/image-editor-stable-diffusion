@@ -47,7 +47,7 @@ Change the pose of the queried object preserving the scene.
 
 Task 2.1  Inpaint the Image to remove the object and complete teh scene  
 Task 2.2  Synthesize novel object view from the polar and azimuth angles  
-Task 2.3 Overlay the object back into the image by anchoring the novel view center with the bounding box center from Task 1.
+Task 2.3 Overlay the object back into the inpainted image by anchoring the novel view center with the bounding box center from Task 1.
 
 
 ### Task 2.1 - Inpaint the Image to remove the object and complete teh scene  
@@ -64,12 +64,20 @@ Unfortunately, this prompt and model did not work for the other images in the sa
 
 ### Task 2.2 - Synthesize novel object view from the polar and azimuth angles 
 
-For this task, I intended to use the [Zero-1-to-3](https://github.com/cvlab-columbia/zero123) model from Columbia University and Toyota Research Institute.
+For this task, I intended to use the [Zero-1-to-3](https://github.com/cvlab-columbia/zero123) model from Columbia University and Toyota Research Institute. However I could not get the model to run locally on the machine within the stipulated time.
 
+With this model, and similar to the implementation in [Stable-zero123](https://huggingface.co/spaces/p4vv37/Stable-zero123) that accepts the cropped queried object and synthesizes a novel view based on the polar and azimuth angles.
 
+Here is an example with azimuthal rotation of 45 degrees.
 
-pip install --no-build-isolation -e GroundingDINO
-pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
+| Input Image | Inpainted Image | 
+| :---:   | :---: | 
+| ![Alt text](cropped_object/chair.png) | ![Alt text](cropped_object/chair_novel_view.png) |
+
+### Task 2.3 Overlay the Novel View back into the inpainted image.
+
+Once the novel view is obtained, it can be resized to the cropped object. This novel view can be directly overlaid with the center in the same position as that of bounding box.
+
 
 
 
