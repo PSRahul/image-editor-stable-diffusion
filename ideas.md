@@ -19,12 +19,21 @@ Is there a model that can directly identify the object based on the text prompt?
 
 1. Get all the segmentation mask and bounding boxes in the image
 2/ Crop the bounding box of each object instance
-3. Use a Multi-model model such as CLIP that can classify each bounding box instance to text prompt class
+3. Use a Multi-model model such as [CLIP](https://openai.com/research/clip) that can classify each bounding box instance to text prompt class by similarity metrics from a unified text-image embedding.
 4. Mask the assigned Bounding box with red color
 
 ### Solution Approach
 
-For the solution, after an initial review of available open source models, I decided to use Method 1.
+For the solution, after an initial review of available open source models, I decided to use Method 1. I used the [Language Segment-Anything](https://github.com/luca-medeiros/lang-segment-anything) from Luca Medeiros to mask the queried object. This uses a combination of two promienent model
+1. [Segment Anything Model (SAM)](https://segment-anything.com/) from Meta AI that aims at zero shot open-world image segmentation.
+2. [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO) from IDEA-Research that extends the self supervised [DINO](https://github.com/facebookresearch/dino) model from Facebook Research to open set object detection.
+
+ This approach works extremely well for the sample images that are provided with the problem set. Here are the visual outputs of the same:
+ 
+ | Input Image | Masked Image    |  Input Image | Masked Image      | Input Image | Masked Image      |
+| :---:   | :---: | :---: | :---: |:---: | :---: |
+| ![Alt text](sample_input_images/chair.jpg) | ![Alt text](task1_output_images/chair.jpg)  | ![Alt text](sample_input_images/chair(1).jpg)   |![Alt text](task1_output_images/chair(1).jpg)   |![Alt text](sample_input_images/flower vase.jpg)   |![Alt text](task1_output_images/flower vase.jpg)
+| ![Alt text](sample_input_images/chair.jpg) | ![Alt text](sample_input_images/chair.jpg)  | ![Alt text](sample_input_images/chair.jpg)   |![Alt text](sample_input_images/chair.jpg)   |![Alt text](sample_input_images/chair.jpg)   |![Alt text](sample_input_images/chair.jpg)   |
 
 ## Task 2
 ### Problem Statement
