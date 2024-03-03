@@ -45,12 +45,26 @@ Change the pose of the queried object preserving the scene.
 
 ## Solution Approach
 
-1. Inpaint the Image to remove the object and complete teh scene
-2. Synthesitze novel object view from the polar and azimuth angles
-3. Push the object back into the image by anchoring the object center with the bounding box center.
+Task 2.1  Inpaint the Image to remove the object and complete teh scene  
+Task 2.2  Synthesize novel object view from the polar and azimuth angles  
+Task 2.3 Overlay the object back into the image by anchoring the novel view center with the bounding box center from Task 1.
 
 
+### Task 2.1 - Inpaint the Image to remove the object and complete teh scene  
 
+For inpainting the scene, I used the [Stable Diffusion Model](https://huggingface.co/runwayml/stable-diffusion-inpainting) from Runway ML and with the Inpainting checkpoint. 
+
+| Input Image | Inpainted Image | 
+| :---:   | :---: | 
+| ![Alt text](sample_input_images/chair.jpg) | ![Alt text](task_2_inter_output_images/chair.jpg) |
+
+Prompt used is "background"
+
+Unfortunately, this prompt and model did not work for the other images in the sample set.
+
+### Task 2.2 - Synthesize novel object view from the polar and azimuth angles 
+
+For this task, I intended to use the [Zero-1-to-3](https://github.com/cvlab-columbia/zero123) model from Columbia University and Toyota Research Institute.
 
 
 
