@@ -1,5 +1,5 @@
 # Object Pose Editor
-| Input Image | Rotate Pose by 45, Chair | 
+| Input Image | Rotate Pose by Azimuth 45, Chair | 
 | :---:   | :---: | 
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
 
@@ -33,6 +33,12 @@ For the solution, after an initial review of available open source models, I dec
 1. [Segment Anything Model (SAM)](https://segment-anything.com/) from Meta AI that aims at zero shot open-world image segmentation.
 2. [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO) from IDEA-Research that extends the self supervised [DINO](https://github.com/facebookresearch/dino) model from Facebook Research to open set object detection.
 
+   
+```
+python main_task_1.py --image "sample_input_images/chair.jpg" --class "chair" --output "task1_output_images/chair.jpg"
+
+```
+
  This approach works extremely well for the sample images that are provided with the problem set. Here are the visual outputs of the same:
  
  | Input Image | Masked Image    |  Input Image | Masked Image      | Input Image | Masked Image      |
@@ -62,7 +68,10 @@ For inpainting the scene, I used the [Stable Diffusion Model](https://huggingfac
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](task_2_inter_output_images/chair.jpg) |
 
 Prompt used is "background"
+```
+python main_task_2_2.py --image "sample_input_images/chair.jpg" --class "chair" --output "task_2_inter_output_images/chair.jpg"
 
+```
 Unfortunately, this prompt and model did not work for the other images in the sample set.
 
 ### Task 2.2 - Synthesize novel object view from the polar and azimuth angles 
@@ -81,6 +90,9 @@ Here is an example with azimuthal rotation of 45 degrees.
 
 Once the novel view is obtained, it can be resized to the cropped object. This novel view can be directly overlaid with the center in the same position as that of bounding box.
 
+```
+python main_task_2_3.py
+```
 | Input Image | Rotate Pose by 45, Chair | 
 | :---:   | :---: | 
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
