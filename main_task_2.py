@@ -3,7 +3,7 @@ import argparse
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-
+import torch
 from lang_sam import LangSAM
 
 
@@ -33,7 +33,7 @@ def main():
     plt.imsave(args.output.split(".jpg")[0]+"_mask.jpg",masks)
 
 
-
+    
 if __name__ == "__main__":
 
     main()
