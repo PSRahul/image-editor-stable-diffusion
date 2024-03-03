@@ -33,6 +33,7 @@ For the solution, after an initial review of available open source models, I dec
 1. [Segment Anything Model (SAM)](https://segment-anything.com/) from Meta AI that aims at zero shot open-world image segmentation.
 2. [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO) from IDEA-Research that extends the self supervised [DINO](https://github.com/facebookresearch/dino) model from Facebook Research to open set object detection.
 
+The exported conda environment file is located in `environment.yml`.
    
 ```
 python main_task_1.py --image "sample_input_images/chair.jpg" --class "chair" --output "task1_output_images/chair.jpg"
