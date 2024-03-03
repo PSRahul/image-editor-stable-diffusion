@@ -1,4 +1,7 @@
 # Object Pose Editor
+| Input Image | Rotate Pose by 45, Chair | 
+| :---:   | :---: | 
+| ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
 
 ## Assumptions 
 
@@ -78,7 +81,9 @@ Here is an example with azimuthal rotation of 45 degrees.
 
 Once the novel view is obtained, it can be resized to the cropped object. This novel view can be directly overlaid with the center in the same position as that of bounding box.
 
-
+| Input Image | Rotate Pose by 45, Chair | 
+| :---:   | :---: | 
+| ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
 
 
 
