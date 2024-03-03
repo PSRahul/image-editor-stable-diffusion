@@ -13,6 +13,8 @@ import numpy as  np
 
 def main():
 
+    # Parse the arguments and get the inputs from the user
+
     parser = argparse.ArgumentParser(description='Fill the class object pixels with red.')
     parser.add_argument('--image', help='Path to the input image containing the target object')
     parser.add_argument('--class_name', help='Class name of the target object to be masked')
@@ -21,6 +23,8 @@ def main():
     args = parser.parse_args()
 
 
+    # Predict the mask and bounding boxes with the Language Segment Anything Model
+
     model = LangSAM()
     image_pil = Image.open(args.image)
     masks, boxes, phrases, logits = model.predict(image_pil.convert("RGB"), args.class_name)
@@ -28,18 +32,17 @@ def main():
     
     mask_pil=Image.fromarray(masks*255)
 
+    # Inpaint the Input Image with the Object Mask and the Prompt
 
     pipeline = AutoPipelineForInpainting.from_pretrained(
-    "runwayml/stable-diffusion-inpainting", torch_dtype=torch.float16, variant="fp16"
-)
+    "runwayml/stable-diffusion-inpainting", torch_dtype=torch.float16, variant="fp16")
     pipeline = pipeline.to("cuda")
-
 
     generator = torch.Generator("cuda")
     prompt = "background"
     image_pil =pipeline(prompt=prompt, image=image_pil, mask_image=mask_pil, generator=generator).images[0]
 
-
+    # Save the Inpainted Image
     plt.imsave(args.output,np.array(image_pil))
     
 

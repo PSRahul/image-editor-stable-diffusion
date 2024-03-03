@@ -3,21 +3,22 @@ import matplotlib.pyplot as plt
 import cv2
 
 def main():
+    # This is an sampled code on overlapping the novel image for the example image at "sample_input_images/chair.jpg".
 
+    # We get the bounding box value from the Task 1 along with the object mask
     bounding_box=list([94, 118, 213, 285])
     X = bounding_box[0]
     Y= bounding_box[1]
     w=bounding_box[2]-bounding_box[0]
     h=bounding_box[3]-bounding_box[1]
 
+    # Load the Inpainted Image and the Novel View Image and Resize
     image_A = cv2.imread('task_2_inter_output_images/chair.jpg')
-    image_A_size = (320,320)
-
+    image_A_size = (320,320) # Size of the Input Image
     image_A = cv2.resize(image_A, image_A_size, interpolation= cv2.INTER_LINEAR)
 
     image_B = cv2.imread('cropped_object/chair_novel_view.png')  
     image_B_size = (w,h)
-
     image_B = cv2.resize(image_B, image_B_size, interpolation= cv2.INTER_LINEAR)
 
     # Get a mask for the background white regions
