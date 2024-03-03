@@ -21,6 +21,7 @@ def main():
     image_pil = Image.open(args.image)
     masks, boxes, phrases, logits = model.predict(image_pil.convert("RGB"), args.class_name)
     masks=masks.numpy()[0]
+    print(boxes)
 
     image_array=np.array(image_pil)/255.0
     masked_image_array=np.copy(image_array)
@@ -29,8 +30,8 @@ def main():
 
     masked_image_array=image_array*(1-masks[:, :, np.newaxis])+red_image_array*masks[:, :, np.newaxis]
 
-    plt.imsave(args.output,masked_image_array)
-    plt.imsave(args.output.split(".jpg")[0]+"_mask.jpg",masks)
+    #plt.imsave(args.output,masked_image_array)
+    #plt.imsave(args.output.split(".jpg")[0]+"_mask.jpg",masks)
 
 
 
