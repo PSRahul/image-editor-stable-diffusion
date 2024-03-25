@@ -4,8 +4,8 @@
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
 
 - [Object Pose Editor with Stable Diffusion](#object-pose-editor-with-stable-diffusion)
-  - [Assumptions](#assumptions)
-  - [Task 1](#task-1)
+- [Assumptions](#assumptions)
+- [Task 1](#task-1)
   - [Problem Statement](#problem-statement)
   - [Possible Solutions](#possible-solutions)
     - [Method 1](#method-1)
@@ -13,7 +13,7 @@
   - [Solution Approach](#solution-approach)
       - [Code](#code)
       - [Results](#results)
-  - [Task 2](#task-2)
+- [Task 2](#task-2)
   - [Problem Statement](#problem-statement-1)
   - [Solution Approach](#solution-approach-1)
     - [Task 2.1 - Inpaint the Image to remove the object and complete the scene](#task-21---inpaint-the-image-to-remove-the-object-and-complete-the-scene)
@@ -26,12 +26,12 @@
       - [Results](#results-2)
   - [Challenges](#challenges)
 
-## Assumptions 
+# Assumptions 
 
 1. Assume every image contains only one instance of the queried class. If more than one instance of the object exists, only one of it will be chosen.
 2. The class of the queried object needs to be a common object class that is part of the widely available large scale vision dataset. Otherwise, the pretrained models cannot be used in this approach to solve the problem.
 
-## Task 1
+# Task 1
 
 ## Problem Statement
 
@@ -78,7 +78,7 @@ python main_task_1.py --image "sample_input_images/chair.jpg" --class "chair" --
  | ![Alt text](sample_input_images/lamp.jpg)  | ![Alt text](task1_output_images/lamp.jpg)  |  ![Alt text](sample_input_images/laptop.jpg)  |  ![Alt text](task1_output_images/laptop.jpg)  | ![Alt text](sample_input_images/office_chair.jpg) | ![Alt text](task1_output_images/office_chair.jpg) |
  | ![Alt text](sample_input_images/sofa.jpg)  | ![Alt text](task1_output_images/sofa.jpg)  |  ![Alt text](sample_input_images/table.jpg)   |  ![Alt text](task1_output_images/table.jpg)   |
 
-## Task 2
+# Task 2
 ## Problem Statement
 
 Change the pose of the queried object preserving the scene.
