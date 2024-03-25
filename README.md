@@ -3,7 +3,6 @@
 | :----------------------------------------: | :---------------------------------: |
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
 
-- [Object Pose Editor with Stable Diffusion](#object-pose-editor-with-stable-diffusion)
 - [Assumptions](#assumptions)
 - [Task 1](#task-1)
   - [Problem Statement](#problem-statement)
