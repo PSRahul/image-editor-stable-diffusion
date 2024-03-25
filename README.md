@@ -1,7 +1,30 @@
-# Object Pose Editor
-| Input Image | Rotate Pose by Azimuth 45, Chair | 
-| :---:   | :---: | 
+# Object Pose Editor with Stable Diffusion
+|                Input Image                 |  Rotate Pose by Azimuth 45, Chair   |
+| :----------------------------------------: | :---------------------------------: |
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
+
+- [Object Pose Editor with Stable Diffusion](#object-pose-editor-with-stable-diffusion)
+  - [Assumptions](#assumptions)
+  - [Task 1](#task-1)
+  - [Problem Statement](#problem-statement)
+  - [Possible Solutions](#possible-solutions)
+    - [Method 1](#method-1)
+    - [Method 2](#method-2)
+  - [Solution Approach](#solution-approach)
+      - [Code](#code)
+      - [Results](#results)
+  - [Task 2](#task-2)
+  - [Problem Statement](#problem-statement-1)
+  - [Solution Approach](#solution-approach-1)
+    - [Task 2.1 - Inpaint the Image to remove the object and complete the scene](#task-21---inpaint-the-image-to-remove-the-object-and-complete-the-scene)
+      - [Code](#code-1)
+      - [Result](#result)
+    - [Task 2.2 - Synthesize novel object view from the polar and azimuth angles](#task-22---synthesize-novel-object-view-from-the-polar-and-azimuth-angles)
+      - [Results](#results-1)
+    - [Task 2.3 Overlay the Novel View back into the inpainted image.](#task-23-overlay-the-novel-view-back-into-the-inpainted-image)
+      - [Code](#code-2)
+      - [Results](#results-2)
+  - [Challenges](#challenges)
 
 ## Assumptions 
 
@@ -49,11 +72,11 @@ python main_task_1.py --image "sample_input_images/chair.jpg" --class "chair" --
  This approach works extremely well for the sample images that are provided with the problem set. Here are the visual outputs of the same:
  
 
- | Input Image | Masked Image    |  Input Image | Masked Image      | Input Image | Masked Image      |
-| :---:   | :---: | :---: | :---: |:---: | :---: |
-| ![Alt text](sample_input_images/chair.jpg) | ![Alt text](task1_output_images/chair.jpg)  | ![Alt text](sample_input_images/chair(1).jpg)   |![Alt text](task1_output_images/chair(1).jpg)   |![Alt text](sample_input_images/flower_vase.jpg)   |![Alt text](task1_output_images/flower_vase.jpg)
-| ![Alt text](sample_input_images/lamp.jpg)   |![Alt text](task1_output_images/lamp.jpg)  | ![Alt text](sample_input_images/laptop.jpg)   |![Alt text](task1_output_images/laptop.jpg)   |![Alt text](sample_input_images/office_chair.jpg)   |![Alt text](task1_output_images/office_chair.jpg)
-| ![Alt text](sample_input_images/sofa.jpg)   |![Alt text](task1_output_images/sofa.jpg)   |![Alt text](sample_input_images/table.jpg)   |![Alt text](task1_output_images/table.jpg)
+ |                Input Image                 |                Masked Image                |                  Input Image                  |                 Masked Image                  |                    Input Image                    |                   Masked Image                    |
+ | :----------------------------------------: | :----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------: |
+ | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](task1_output_images/chair.jpg) | ![Alt text](sample_input_images/chair(1).jpg) | ![Alt text](task1_output_images/chair(1).jpg) | ![Alt text](sample_input_images/flower_vase.jpg)  | ![Alt text](task1_output_images/flower_vase.jpg)  |
+ | ![Alt text](sample_input_images/lamp.jpg)  | ![Alt text](task1_output_images/lamp.jpg)  |  ![Alt text](sample_input_images/laptop.jpg)  |  ![Alt text](task1_output_images/laptop.jpg)  | ![Alt text](sample_input_images/office_chair.jpg) | ![Alt text](task1_output_images/office_chair.jpg) |
+ | ![Alt text](sample_input_images/sofa.jpg)  | ![Alt text](task1_output_images/sofa.jpg)  |  ![Alt text](sample_input_images/table.jpg)   |  ![Alt text](task1_output_images/table.jpg)   |
 
 ## Task 2
 ## Problem Statement
@@ -81,8 +104,8 @@ python main_task_2_2.py --image "sample_input_images/chair.jpg" --class "chair" 
 #### Result
 
 
-| Input Image | Inpainted Image | 
-| :---:   | :---: | 
+|                Input Image                 |                  Inpainted Image                  |
+| :----------------------------------------: | :-----------------------------------------------: |
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](task_2_inter_output_images/chair.jpg) |
 
 
@@ -99,8 +122,8 @@ Here is an example with azimuthal rotation of 45 degrees that was generated from
 #### Results
 
 
-| Input Image | Inpainted Image | 
-| :---:   | :---: | 
+|              Input Image              |                 Inpainted Image                  |
+| :-----------------------------------: | :----------------------------------------------: |
 | ![Alt text](cropped_object/chair.png) | ![Alt text](cropped_object/chair_novel_view.png) |
 
 ### Task 2.3 Overlay the Novel View back into the inpainted image.
@@ -114,8 +137,8 @@ python main_task_2_3.py
 ```
 #### Results
 
-| Input Image | Rotate Pose by Azimuth 45, Chair | 
-| :---:   | :---: | 
+|                Input Image                 |  Rotate Pose by Azimuth 45, Chair   |
+| :----------------------------------------: | :---------------------------------: |
 | ![Alt text](sample_input_images/chair.jpg) | ![Alt text](final_output_chair.png) |
 
 
